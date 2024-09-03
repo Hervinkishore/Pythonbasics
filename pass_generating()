@@ -22,8 +22,7 @@ for k in range(nr_numbers):
     password+=z
 print("The password generated is: "+password)
 l=list(password)
-n=len(l)
 h=""
-for i in range(n):
+for i in range(len(l)):
     h+=random.choice(l)
 print("Your strond passord generated is",h)
