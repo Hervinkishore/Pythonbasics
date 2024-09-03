@@ -1,0 +1,15 @@
+def avg(lest):
+    l=len(lest)
+    s=0
+    for i in range(l):
+        s+=lest[i]
+    print (s)
+    print (l)
+    return s/l
+
+
+
+
+
+student_scores = [150, 142, 185, 120, 171, 184, 149, 24, 59, 68, 199, 78, 65, 89, 86, 55, 91, 64, 89]
+print(avg(student_scores))
