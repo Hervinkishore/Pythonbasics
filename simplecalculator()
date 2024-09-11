@@ -1,0 +1,25 @@
+def add(n1, n2):
+    return n1 + n2
+def sub(n1, n2):
+    return n1 - n2
+def mul(n1, n2):
+    return n1 * n2
+def div(n1, n2):
+    return n1 / n2
+
+
+operation=input("enter '+','-','*','/' to do following operation : ")
+name1=int(input("Enter the first number : "))
+name2=int(input("Enter the second number : "))
+if operation=="+":
+    print(add(name1,name2))
+elif operation=="-":
+    print(sub(name1,name2))
+elif operation=="*":
+    print(mul(name1,name2))
+elif operation=="/":
+    print(div(name1,name2))
+else:
+    print("youve entered a wrong operator")
+
+
