@@ -1,0 +1,52 @@
+import random
+l=[1,2,3,4,5,6,7,8,9,10,10,10,10]
+you=[]
+computer=[]
+a=0
+c=0
+yes_or_no=input("Do you want to play a game of Blackjack? Type 'y' or 'n': ")
+if yes_or_no=="y":
+    for i in range(2):
+        you.append(random.choice(l))
+        a+=you[i]
+    computer.append(random.choice(l))
+
+    print(f"Your cards:  {you}, current score: {a}")
+    print(f"Computer's first card: {computer[0]}")
+
+
+    if a==21:
+        print("-----------------------YOU WON-------------------------")
+    while a<=21 and c<=21:
+        anothercard_or_pass = input("Type 'y' to get another card, type 'n' to pass:")
+        if anothercard_or_pass=="y":
+            you.append(random.choice(l))
+            a=0
+            for v in range(len(you)):
+                a+=you[v]
+            print(f"Your cards: {you}, current score: {a}")
+            print(f"Computer's first card: {computer[0]}")
+        elif anothercard_or_pass=="n":
+            while c<21:
+                computer.append(random.choice(l))
+                c=0
+                for k in range(len(computer)):
+                    c+=computer[k]
+
+            else:
+                if c==21:
+                    print(f"Your cards: {you}, current score: {a}")
+                    print(f"Computer's final hand: {computer}, final score:{c}")
+                    print("You lose 😤")
+                    exit()
+
+        else:
+            print("You have given an wrong input ****")
+
+    else:
+        if a>21:
+            print("You went over. You lose 😭")
+        else:
+            print(f"Your final hand: {you}, final score: {a}")
+            print(f"Computer's final hand: {computer}, final score: {c}")
+            print("********** YOU WON THE GAME ************")
