@@ -1,0 +1,15 @@
+def avg(lest):
+    l=len(lest)
+    s=0
+    for i in range(l):
+        s+=lest[i]
+    print ("the total of all elements : ",s)
+    print ("The total number of elements in the list : ",l)
+    return s/l
+
+
+
+
+
+student_scores = eval(input("enter a list of elements : "))
+print("The average value fetched from the list : ",avg(student_scores))
