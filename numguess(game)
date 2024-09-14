@@ -1,0 +1,42 @@
+import random
+
+number=random.randint(0,100)
+print("Welcome to the Number Guessing Game!")
+print("I'm thinking of a number between 1 and 100.")
+inp=input("Choose a difficulty. Type 'easy' or 'hard':")
+if inp=="easy":
+    attemps=10
+    while attemps:
+        print(f"You have {attemps} attempts remaining to guess the number.")
+        guess=int(input("Make a guess:"))
+        if guess>number:
+            print("too high")
+            attemps-=1
+        elif guess<number:
+            print("Too low")
+            attemps-=1
+        elif guess==number:
+            print(f"You got it! The answer was {number}.")
+            attemps=0
+        else:
+            print("Youve given a wrong input ")
+
+elif inp=="hard":
+    attemps=5
+    while attemps:
+        print(f"You have {attemps} attempts remaining to guess the number.")
+        guess = int(input("Make a guess:"))
+        if guess > number:
+            print("too high")
+            attemps -= 1
+        elif guess < number:
+            print("Too low")
+            attemps -= 1
+        elif guess == number:
+            print(f"You got it! The answer was {number}.")
+            attemps = 0
+        else:
+            print("Youve given a wrong input ")
+
+else:
+    print("Youve provided a wrong input")
