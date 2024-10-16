@@ -1,0 +1,53 @@
+import turtle
+from turtle import Turtle
+from turtle import Screen
+import random
+
+
+
+tim=Turtle()
+tim.color("violet")
+tim.pencolor("red")
+tim.shape("arrow")
+tim.width(5)
+turtle.colormode(255)
+def colours():
+    r=random.randint(0,255)
+    g=random.randint(0,255)
+    b=random.randint(0,255)
+    c=(r,g,b)
+    return c
+n=0
+for j in range(100):
+    if n == 10:
+        tim.pencolor(colours())
+        tim.left(90)
+        tim.up()
+        tim.fd(20)
+        tim.down()
+        tim.dot()
+        tim.left(90)
+        n += 1
+    elif n == 20:
+        tim.pencolor(colours())
+        tim.right(90)
+        tim.up()
+        tim.fd(20)
+        tim.down()
+        tim.dot()
+        tim.right(90)
+        n = 0
+        n += 1
+    else:
+        tim.pencolor(colours())
+        tim.up()
+        tim.fd(20)
+        tim.down()
+        tim.dot()
+        n += 1
+
+
+
+
+sc=Screen()
+sc.exitonclick()
