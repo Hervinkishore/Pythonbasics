@@ -1,0 +1,22 @@
+from turtle import Turtle
+from turtle import Screen
+import random
+
+tim=Turtle()
+tim.shape("turtle")
+tim.width(3)
+lines=3
+angles=360
+cumma=["red","blue","green","yellow","black","purple","brown","orange"]
+for i in range(7):
+    a=angles/lines
+    tim.color(random.choice(cumma))
+    for j in range(lines):
+        tim.right(a)
+        tim.forward(100)
+    lines+=1
+
+# for i in range(10)
+sc=Screen()
+sc.screensize(120,1600)
+sc.exitonclick()
