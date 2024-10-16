@@ -1,0 +1,28 @@
+import turtle
+from turtle import Turtle
+from turtle import Screen
+import random
+def colour():
+    r=random.randint(0,255)
+    g=random.randint(0,255)
+    b=random.randint(0,255)
+    c=(r,g,b)
+    return c
+sc=Screen()
+sc.screensize(120,1600)
+
+
+tim=Turtle()
+tim.shape("turtle")
+tim.width(10)
+tim.speed("normal")
+turtle.colormode(255)
+direction=[0,90,180,270]
+
+for i in range(200):
+    tim.setheading(random.choice(direction))
+    tim.pencolor(colour())
+    tim.fd(30)
+
+# for i in range(10)
+sc.exitonclick()
