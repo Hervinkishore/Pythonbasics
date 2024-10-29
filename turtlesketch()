@@ -1,0 +1,32 @@
+from turtle import Turtle
+from turtle import Screen
+tim=Turtle()
+sc=Screen()
+def forward():
+    tim.fd(10)
+def backward():
+    tim.bk(10)
+def lefthand():
+    tim.left(10)
+def righthand():
+    tim.right(10)
+def clear():
+    tim.clear()
+    tim.up()
+    tim.home()
+    tim.down()
+def home():
+    tim.home()
+sc.onkey(forward,"w")
+sc.onkey(backward,"s")
+sc.onkey(righthand,"d")
+sc.onkey(lefthand,"a")
+sc.onkey(key="c",fun=clear)
+sc.onkey(home,"h")
+
+
+
+
+sc.listen()
+
+sc.exitonclick()
