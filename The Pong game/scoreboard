@@ -1,0 +1,18 @@
+from turtle import Turtle
+class Scoreboard(Turtle):
+    def __init__(self,c,x,y):
+        super().__init__()
+        self.score=0
+        self.color(c)
+        self.hideturtle()
+        self.up()
+        self.goto(x,y)
+        self.write(f"score:{self.score}", align="center", font=("Arial", 16, "normal"))
+    def inc(self):
+        self.score+=1
+        self.clear()
+        self.write(f"score:{self.score}", align="center", font=("Arial", 16, "normal"))
+
+
+
+
