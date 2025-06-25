@@ -1,0 +1,12 @@
+with open("./Input/Letters/starting_letter.txt","r") as letter:
+    l=letter.read()
+with open("./Input/Names/invited_names.txt")as names:
+    n=names.readlines()
+    for i in n:
+        newone=l.replace("[name]",i.strip())
+        print(newone)
+        with open(f"./Output/ReadyToSend/letter_for_{i.strip()}.docx","w") as ex:
+            ex.write(newone)
+
+
+
