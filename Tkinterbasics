@@ -1,0 +1,38 @@
+window=Tk()
+window.title("Crisus")
+window.minsize(height=500,width=1300)
+label=Label(text="This is new text")
+label.pack()
+button=Button(text="Clickme")
+button.pack()
+inp=Entry()
+inp.focus()
+print(inp.get())
+inp.pack()
+txt=Text(width=20,height=4)
+txt.insert(END,"Example of multi line text entry")
+print(txt.get("1.0",END))
+txt.pack()
+def doit():
+    print(spi.get())
+spi=Spinbox(from_=0,to=10,width=5,command=doit)
+spi.pack()
+def scale_it(u):
+    print(u)
+scalee=Scale(from_=0,to=100,command=scale_it)
+scalee.pack()
+def btnfnc():
+    print(cbtnst.get())
+cbtnst=IntVar()
+cbtn=Checkbutton(text="I am option 1",variable=cbtnst,command=btnfnc)
+cbtn.pack()
+def radiofn():
+    pass
+radval=IntVar()
+radval1=IntVar()
+radio1=Radiobutton(text="Option1",value=1,variable=radval,command=radiofn)
+radio2=Radiobutton(text="Option2",value=2,variable=radval1,command=radiofn)
+radio2.pack()
+radio1.pack()
+
+window.mainloop()
