@@ -1,0 +1,25 @@
+
+from tkinter import *
+window=Tk()
+window.title("Mil to KM converter")
+window.minsize(height=200,width=300)
+window.config(pady=20,padx=20)
+def btnclicked():
+    x=int(int(ent.get()) * 1.60934)
+    lab3.config(text=x)
+    print(int(ent.get()),"miles is equal to",x,"kilometers")
+ent=Entry()
+ent.grid(column=1,row=0)
+lab1=Label(text="Miles")
+lab1.grid(column=2,row=0)
+lab2=Label(text="is equal to")
+lab2.grid(column=0,row=1)
+lab3=Label(text="0")
+lab3.grid(column=1,row=1)
+lab4=Label(text="km")
+lab4.grid(column=2,row=1)
+btn=Button(text="Calculate",command=btnclicked)
+btn.grid(column=1,row=2)
+
+
+window.mainloop()
