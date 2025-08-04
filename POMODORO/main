@@ -1,0 +1,85 @@
+from tkinter import *
+# ---------------------------- CONSTANTS ------------------------------- #
+PINK = "#e2979c"
+RED = "#e7305b"
+GREEN = "#9bdeac"
+YELLOW = "#f7f5dd"
+FONT_NAME = "Courier"
+WORK_MIN = 25
+SHORT_BREAK_MIN =5
+LONG_BREAK_MIN = 15
+reps=0
+timer=None
+# ---------------------------- TIMER RESET ------------------------------- #
+def resettimer():
+    global timer
+    global x
+    global reps
+    window.after_cancel(timer)
+    canva.itemconfig(timer_Text,text="00:00")
+    reps=0
+    label.config(text="Timer")
+    x=""
+    checkmark.config(text=x)
+
+# ---------------------------- TIMER MECHANISM ------------------------------- #
+def starttimer():
+    global reps
+    reps+=1
+    working_time=WORK_MIN*60
+    short_break=SHORT_BREAK_MIN*60
+    long_break=LONG_BREAK_MIN*60
+    if reps%8==0:
+        label.config(text="Break", fg=RED, bg=YELLOW)
+        count_down(long_break)
+        window.after_cancel(timer)
+    elif reps%2==0:
+        label.config(text="Break", fg=PINK, bg=YELLOW)
+        count_down(short_break)
+    else:
+        label.config(text="Work", fg=GREEN, bg=YELLOW)
+        count_down(working_time)
+
+
+
+# ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
+def count_down(cont):
+    global timer
+    minu=str(cont//60)
+    sec=str(cont%60)
+
+    if int(sec)<10:
+        sec="0"+sec
+    canva.itemconfig(timer_Text,text=minu+":"+sec)
+    if cont>0:
+        timer=window.after(1000,count_down,cont-1)
+    else:
+        global x
+        starttimer()
+        if reps%2==0:
+            x+="✔"
+        checkmark.config(text=x)
+
+
+# ---------------------------- UI SETUP ------------------------------- #
+window=Tk()
+window.title("Pomodoro")
+x=""
+window.config(padx=50,pady=50,bg=YELLOW)
+label=Label(text="Timer",fg=GREEN,bg=YELLOW,font=(FONT_NAME,24,"bold"))
+label.grid(column=1,row=0)
+
+canva=Canvas(height=224,width=200,bg=YELLOW,highlightthickness=0)
+img=PhotoImage(file="tomato.png")
+canva.create_image(100,112,image=img)
+timer_Text=canva.create_text(100,130,text="00:00",fill="white",font=("Arial",18,"bold"))
+
+canva.grid(column=1,row=1)
+strt_btn=Button(text="Start",highlightthickness=0,command=starttimer)
+strt_btn.grid(column=0,row=2)
+reset_btn=Button(text="Reset",command=resettimer)
+reset_btn.grid(column=2,row=2)
+checkmark=Label(text=x,fg=GREEN)
+checkmark.grid(column=1,row=3)
+
+window.mainloop()
